@@ -1,0 +1,838 @@
+fileFormatVersion: 2
+guid: 303596df7bb5bab4982173e5928d9742
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 208
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b751a1107635d48876fb93842bc6b1
+      internalID: -249271764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 205
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6eca3395f0459b4ebce8726ee819916
+      internalID: 2086354721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 208
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e82c654d21392b4da35304a83c7e2e8
+      internalID: 1470218801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 204
+        width: 29
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8577200fcb12c2458c500ee9cea8e46
+      internalID: 1175261512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 208
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48644a178953f0f4dbbf3696d49f126d
+      internalID: 413027648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 206
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 254ce7923df08ec4db15d86ccf90bcee
+      internalID: 290617156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 193
+        width: 53
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96c94eb591af1e42ae5a116ac8519f4
+      internalID: 1218010538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 196
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076cd7e59b1664941b7c1a483a280450
+      internalID: 255910871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 144
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a58c644bb81bf84ebdb758cf70d4346
+      internalID: -1521993149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 141
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6684adf000c4b2b4bbae6df6aba59726
+      internalID: -587666381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 144
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2548fe71642ccf142a5cc3262e348f2b
+      internalID: 589907620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 141
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0ec516247e1ad54083f2939317f5a1d
+      internalID: -1619134847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 144
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95bfa070592b6b542b1cd2fe824f4dc9
+      internalID: 690308434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 132
+        width: 40
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517f9f5e6deaad34d9aed5ad6befd8d0
+      internalID: 164441720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 143
+        width: 52
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbe310a2ae45f04f9f14f3b8f129897
+      internalID: 648169688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 144
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ec63589199bfc4b8ae8336e7e59ee8
+      internalID: 1902601797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 80
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 936439f57ebbaf04ebcc2f89b6d1f23c
+      internalID: 1513926847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 80
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c26e060dfe00c346b2eeffd12689354
+      internalID: 620579148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 80
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fa043318d4d67e4ca42eb90353e9cf4
+      internalID: 319397644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 77
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7639691b4d350b74a907bd1fb5bfd92d
+      internalID: 1892789438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 80
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39900c2b22e959e4a8afd9b32eb501dc
+      internalID: -1635559811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 72
+        width: 48
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b83b83a03fc15b4ea7124810bba6f91
+      internalID: -47257050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 72
+        width: 55
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8081fa708290d3444b34d6ad4148436d
+      internalID: 1255455088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 80
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65838c8b2d202b648ba2228ed439dab3
+      internalID: -219095271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 16
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72633ae7c746ebc4c89b167d45ef2dab
+      internalID: -891525697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78a9725cd286ba4595ed55d0d302828
+      internalID: -1676895596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 16
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cab045c64921d5740a5f25be8c5e3cc1
+      internalID: -1238648512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 15
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 144d027247368624cb643786f7b18664
+      internalID: 1533551226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 16
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d6c8ad4c1450d940ab9913992715c6c
+      internalID: -1789774458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 8
+        width: 48
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeec0deafe1699c46925d28c5f0e72ae
+      internalID: -1352359994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 8
+        width: 55
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c1b2a46040e524a9f6062664c9e3fa
+      internalID: 1021206871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squelette_SpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 16
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ba6ba0913f9be4ba0ec4ebf741cd04
+      internalID: 2101914793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Squelette_SpriteSheet_23: -219095271
+      Squelette_SpriteSheet_26: -1238648512
+      Squelette_SpriteSheet_18: 319397644
+      Squelette_SpriteSheet_24: -891525697
+      Squelette_SpriteSheet_17: 620579148
+      Squelette_SpriteSheet_27: 1533551226
+      Squelette_SpriteSheet_8: -1521993149
+      Squelette_SpriteSheet_4: 413027648
+      Squelette_SpriteSheet_12: 690308434
+      Squelette_SpriteSheet_15: 1902601797
+      Squelette_SpriteSheet_1: 2086354721
+      Squelette_SpriteSheet_22: 1255455088
+      Squelette_SpriteSheet_28: -1789774458
+      Squelette_SpriteSheet_0: -249271764
+      Squelette_SpriteSheet_7: 255910871
+      Squelette_SpriteSheet_14: 648169688
+      Squelette_SpriteSheet_16: 1513926847
+      Squelette_SpriteSheet_20: -1635559811
+      Squelette_SpriteSheet_21: -47257050
+      Squelette_SpriteSheet_3: 1175261512
+      Squelette_SpriteSheet_31: 2101914793
+      Squelette_SpriteSheet_13: 164441720
+      Squelette_SpriteSheet_2: 1470218801
+      Squelette_SpriteSheet_11: -1619134847
+      Squelette_SpriteSheet_10: 589907620
+      Squelette_SpriteSheet_29: -1352359994
+      Squelette_SpriteSheet_9: -587666381
+      Squelette_SpriteSheet_19: 1892789438
+      Squelette_SpriteSheet_25: -1676895596
+      Squelette_SpriteSheet_5: 290617156
+      Squelette_SpriteSheet_6: 1218010538
+      Squelette_SpriteSheet_30: 1021206871
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,50 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class EquipmentSlots : MonoBehaviour
+{
+    public int slotIndex;
+
+    public Image icon;
+    public Equipment item;
+
+    public Inventory Inventory;
+    public PlayerController PlayerController;
+
+    public CraftingManager CraftingManager;
+    public GameObject customCursor;
+
+    public void AddToInventory()
+    {
+        Inventory.AddItem(item);
+        PlayerController.Agility -= item.agilityModifier;
+        PlayerController.Strength -= item.strengthModifier;
+        PlayerController.Stamina -= item.staminaModifier;
+        PlayerController.Intelect -= item.intelectModifier;
+        PlayerController.Spirit -= item.spiritModifier;
+        item = null;
+        icon.sprite = null;
+        icon.gameObject.SetActive(false);
+        Inventory.currentEquipment[slotIndex] = null;
+    }
+
+    public void DragAndDrop()
+    {
+        if (item == null)
+        {
+            return;
+        }
+
+        CraftingManager.currentItem = item;
+
+        customCursor.SetActive(true);
+        customCursor.GetComponent<CustomCursor>().item = item;
+        customCursor.GetComponent<Image>().sprite = item.icon;
+        item = null;
+        icon.sprite = null;
+        icon.gameObject.SetActive(false);
+        Inventory.currentEquipment[slotIndex] = null;
+    }
+}
