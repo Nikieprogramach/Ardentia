@@ -36,6 +36,8 @@ public class QuestGiver : MonoBehaviour
     public GameObject rewardItem;
     public Image rewardItemIcon;
 
+    bool rewardHasBeenClaimed = false;
+
     public void OpenQuestWindow()
     {
         if (isGivingQuest == true)
@@ -70,33 +72,40 @@ public class QuestGiver : MonoBehaviour
             }
         }else if (isGivingrewardForQuest)
         {
-            rewardWindow.SetActive(true);
+            if (!rewardHasBeenClaimed)
+            {
+                rewardWindow.SetActive(true);
 
-            rewardTitle.text = quest.title + " completed!";
-            if (quest.moneyReward != null)
-            {
-                rewardMoney.SetActive(true);
-                rewardMoneyAmount.text = quest.moneyReward.ToString();
-            }
-            if (quest.xpReward != null)
-            {
-                rewardXp.SetActive(true);
-                rewardXpAmount.text = quest.xpReward.ToString();
-            }
-            if (quest.itemReward != null)
-            {
-                rewardItem.gameObject.SetActive(true);
-                rewardItemIcon.sprite = quest.itemReward.icon;
+                rewardTitle.text = quest.title + " completed!";
+                if (quest.moneyReward != null)
+                {
+                    rewardMoney.SetActive(true);
+                    rewardMoneyAmount.text = quest.moneyReward.ToString();
+                }
+                if (quest.xpReward != null)
+                {
+                    rewardXp.SetActive(true);
+                    rewardXpAmount.text = quest.xpReward.ToString();
+                }
+                if (quest.itemReward != null)
+                {
+                    rewardItem.gameObject.SetActive(true);
+                    rewardItemIcon.sprite = quest.itemReward.icon;
+                }
             }
         }
     }
 
     void Update()
     {
-        if(QuestTracker.instance.activeQuest != null && QuestTracker.instance.questIsCompleted == true && QuestTracker.instance.activeQuest.title == quest.title)
+        if(QuestTracker.instance.activeQuest != null && QuestTracker.instance.questIsCompleted == true && QuestTracker.instance.activeQuest.title == quest.title && rewardHasBeenClaimed == false)
         {
             hasCompletedQuestMark.SetActive(true);
             isGivingrewardForQuest = true;
+        }
+        else
+        {
+            hasCompletedQuestMark.SetActive(false);
         }
     }
 
@@ -117,6 +126,7 @@ public class QuestGiver : MonoBehaviour
     public void OnCompleteQuestPress()
     {
         QuestTracker.instance.CompleteQuest();
+        rewardHasBeenClaimed = true;
         rewardWindow.SetActive(false);
     }
 }

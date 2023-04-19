@@ -81,17 +81,14 @@ public class CraftingSlot : MonoBehaviour
 
     public void OnMouseOver()
     {
-        Debug.Log("Hovering on " + gameObject.name);
         if (item != null)
         {
             itemInfoObj.GetComponent<ItemInfo>().ShowInfo(item);
         }
-
     }
 
     public void OnMouseExit()
     {
-        Debug.Log("Exiting on " + gameObject.name);
         //itemInfoObj.GetComponent<ItemInfo>().ItemInfoShowup.SetActive(false);
         itemInfoObj.GetComponent<ItemInfo>().HideInfo();
     }
