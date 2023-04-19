@@ -17,6 +17,18 @@ public class InventorySlot : MonoBehaviour
 
     public bool canRemoveItems = true;
 
+    public GameObject itemInfoObj;
+
+    void Start()
+    {
+        Init();
+    }
+
+    void Init()
+    {
+        itemInfoObj = ItemInfo.instance.gameObject;
+    }
+
     public void AddItem(Item itemToAdd)
     {
         item = itemToAdd;
@@ -69,4 +81,20 @@ public class InventorySlot : MonoBehaviour
         }
     }
 
+    public void OnMouseOver()
+    {
+        Debug.Log("Hovering on " + gameObject.name);
+        if(item != null)
+        {
+            itemInfoObj.GetComponent<ItemInfo>().ShowInfo(item);
+        }
+
+    }
+
+    public void OnMouseExit()
+    {
+        Debug.Log("Exiting on " + gameObject.name);
+        //itemInfoObj.GetComponent<ItemInfo>().ItemInfoShowup.SetActive(false);
+        itemInfoObj.GetComponent<ItemInfo>().HideInfo();
+    }
 }

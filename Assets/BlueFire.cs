@@ -23,7 +23,7 @@ public class BlueFire : MonoBehaviour
     {
         if (collider.GetComponent<PlayerController>() != null)
         {
-            collider.GetComponent<PlayerController>().TakeDamage(damage);
+            collider.GetComponent<PlayerController>().TakeDamage(damage, null);
         }
         else if(collider.GetComponent<Enemy>() != null && collider.GetComponent<SkeletonBossAttack>())
         {

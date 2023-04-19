@@ -22,11 +22,10 @@ public class Bullet : MonoBehaviour
     {
         if (collider.GetComponent<PlayerController>() == null)
         {
-            //Enemy enemy = collider.GetComponent<Enemy>();
-            //if (enemy != null)
-            //{
-            //    enemy.TakeDamage(damage);
-            //}
+            if (collider.GetComponent<Enemy>() != null)
+            {
+                collider.GetComponent<Enemy>().TakeDamage(damage);
+            }
             Destroy(gameObject);
         }
     }

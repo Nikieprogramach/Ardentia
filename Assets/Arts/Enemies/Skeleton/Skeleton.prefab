@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2086737224881223049}
   m_Layer: 7
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Skeleton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,6 +213,7 @@ MonoBehaviour:
   attackRange: 1.5
   attackSpeed: 2
   attackPoint: {fileID: 3641334884545016002}
+  damage: 10
   playerLayer:
     serializedVersion: 2
     m_Bits: 512

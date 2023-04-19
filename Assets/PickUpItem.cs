@@ -3,6 +3,7 @@ using UnityEngine;
 public class PickUpItem : Interactable
 {
     public Item item;
+    public Equipment equipment;
 
     public override void Interact()
     {
@@ -17,12 +18,20 @@ public class PickUpItem : Interactable
 
     void PickUp()
     {
-        Debug.Log("Picking up " + item.name);
-        bool wasPickedUp = Inventory.instance.AddItem(item);
-        if (wasPickedUp)
+        if(item != null)
         {
-            Destroy(gameObject);
+            bool wasPickedUp = Inventory.instance.AddItem(item);
+            if (wasPickedUp)
+            {
+                Destroy(gameObject);
+            }
+        }else if(equipment != null)
+        {
+            bool wasPickedUp = Inventory.instance.AddItem(equipment);
+            if (wasPickedUp)
+            {
+                Destroy(gameObject);
+            }
         }
-
     }
 }

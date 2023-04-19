@@ -10,6 +10,15 @@ public class Vendor : MonoBehaviour
     public Item[] itemsToSell;
 
     public bool shopIsOpen = false;
+    public float shopRange;
+
+    void Update()
+    {
+        if(Vector2.Distance(transform.position, PlayerController.instance.GetComponent<Transform>().position) > shopRange && shopIsOpen == true)
+        {
+            OnClickOpenShop();
+        }
+    }
 
     public void SetItems()
     {
@@ -19,6 +28,7 @@ public class Vendor : MonoBehaviour
             slots[i].GetComponent<VendorShopItem>().item = itemsToSell[i];
             slots[i].GetComponent<VendorShopItem>().icon.gameObject.SetActive(true);
             slots[i].GetComponent<VendorShopItem>().icon.sprite = itemsToSell[i].icon;
+            slots[i].GetComponent<VendorShopItem>().price.text = "" + itemsToSell[i].price;
         }
     }
 

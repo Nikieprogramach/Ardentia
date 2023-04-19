@@ -9,9 +9,12 @@ public class Enemy : MonoBehaviour
 
     public Animator animator;
 
+    Vector3 defaultPos;
+
     void Start()
     {
         currentHealth = maxHealth;
+        defaultPos = transform.position;
     }
 
     void Update()
@@ -21,9 +24,12 @@ public class Enemy : MonoBehaviour
             if(transform.GetComponent<SkeletonDie>() != null)
             {
                 transform.GetComponent<SkeletonDie>().Die();
+                Die();
             }
             else
             {
+                DropLoot();
+                Debug.Log("Died"); 
                 animator.SetTrigger("Die");
                 Destroy(gameObject);
             }
@@ -40,5 +46,23 @@ public class Enemy : MonoBehaviour
     public void Heal(float health)
     {
         currentHealth += health;
+    }
+    
+    public void ResetAgro()
+    {
+        transform.GetComponent<SkeletonMovement>().isFollowingPlayer = false;
+        transform.position = defaultPos;
+    }
+
+    public void DropLoot()
+    {
+        DropLootController.instance.DropItem(transform);
+    }
+
+    public void Die()
+    {
+        QuestTracker.instance.OnEnemyKilled(gameObject);
+        DropLootController.instance.DropItem(transform);
+        Destroy(gameObject);
     }
 }

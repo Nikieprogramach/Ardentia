@@ -16,7 +16,7 @@ public class ForceField : MonoBehaviour
         if(hitPlayers != null)
         {
             foreach(Collider2D player in hitPlayers){
-                player.GetComponent<PlayerController>().TakeDamage(damage);
+                player.GetComponent<PlayerController>().TakeDamage(damage, null);
             }
         }
     }

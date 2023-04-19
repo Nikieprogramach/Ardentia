@@ -7,11 +7,12 @@ public class Equipment : Item
 {
     public EquipmentSlot equipSlot;
 
-    public int agilityModifier;
-    public int strengthModifier;
-    public int staminaModifier;
-    public int intelectModifier;
-    public int spiritModifier;
+    //public int agilityModifier;
+    //public int strengthModifier;
+    //public int staminaModifier;
+    //public int intelectModifier;
+    //public int spiritModifier;
+    //public bool IsRanged = false;
 
     public override void Use()
     {
@@ -26,4 +27,4 @@ public class Equipment : Item
     }
 }
 
-public enum EquipmentSlot { Head, Chest, Legs, Boots, Trinket, Ring, Amulet, Weapon }
+public enum EquipmentSlot { Head, Chest, Hands, Boots, Trinket, Ring, Amulet, Weapon }

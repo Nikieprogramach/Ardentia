@@ -9,6 +9,5 @@ public class SkeletonDie : MonoBehaviour
     public void Die()
     {
         Instantiate(blueFirePrefab, transform.position, transform.rotation);
-        Destroy(gameObject);
     }
 }

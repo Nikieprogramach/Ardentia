@@ -13,6 +13,18 @@ public class CraftingSlot : MonoBehaviour
 
     public GameObject customCursor;
 
+    public GameObject itemInfoObj;
+
+    void Start()
+    {
+        Init();
+    }
+
+    void Init()
+    {
+        itemInfoObj = ItemInfo.instance.gameObject;
+    }
+
     public void DragAndDrop()
     {
         if (item == null)
@@ -65,5 +77,22 @@ public class CraftingSlot : MonoBehaviour
         {
             Inventory.instance.AddItem(item);
         }
+    }
+
+    public void OnMouseOver()
+    {
+        Debug.Log("Hovering on " + gameObject.name);
+        if (item != null)
+        {
+            itemInfoObj.GetComponent<ItemInfo>().ShowInfo(item);
+        }
+
+    }
+
+    public void OnMouseExit()
+    {
+        Debug.Log("Exiting on " + gameObject.name);
+        //itemInfoObj.GetComponent<ItemInfo>().ItemInfoShowup.SetActive(false);
+        itemInfoObj.GetComponent<ItemInfo>().HideInfo();
     }
 }

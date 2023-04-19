@@ -28,6 +28,11 @@ public class Attacking : MonoBehaviour
     public GameObject wavePrefab;
     public bool CanUseWaveSpell = true;
 
+    public GameObject arrowPrefab;
+    public float arrowSpeed;
+    public float shootCooldown;
+    float shootCooldownCounter;
+
     //public GameObject spellPrefab;
 
     public GameObject[] skillSlots;
@@ -40,6 +45,8 @@ public class Attacking : MonoBehaviour
     public float attackRange;
     public LayerMask enemyLayers;
 
+    public LayerMask resourcesToBeGathered;
+
     public Animator animator;
     // Update is called once per frame
     void Update()
@@ -48,6 +55,11 @@ public class Attacking : MonoBehaviour
         if(attackCooldownCounter > 0)
         {
             attackCooldownCounter -= Time.deltaTime;
+        }
+
+        if (shootCooldownCounter > 0)
+        {
+            shootCooldownCounter -= Time.deltaTime;
         }
 
         if (attackPoint.position != transform.position)
@@ -61,10 +73,17 @@ public class Attacking : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         firePointRb.rotation = angle;
 
-        if (Input.GetButtonDown("Fire2") && attackCooldownCounter <= 0)
+        if (Input.GetButtonDown("Fire2"))
         {
-            Attack();
-            attackCooldownCounter = attackCooldown - PlayerController.instance.Agility/50;
+            if (Inventory.instance.currentEquipment[7] != null && Inventory.instance.currentEquipment[7].IsRanged == false && attackCooldownCounter <= 0)
+            {
+                Attack();
+                attackCooldownCounter = attackCooldown - PlayerController.instance.Agility/50;
+            }else if(Inventory.instance.currentEquipment[7] != null && Inventory.instance.currentEquipment[7].IsRanged == true && shootCooldownCounter <= 0)
+            {
+                Shoot("Arrow");
+                shootCooldownCounter = shootCooldown - PlayerController.instance.Agility / 50;
+            }
         }
         if (Input.GetKey("1") && CanUseCrossedSpell)
         {
@@ -82,6 +101,38 @@ public class Attacking : MonoBehaviour
 
     void Shoot(string type)
     {
+        if(type == "Arrow")
+        {
+            if (angleOriginal > 0 && angleOriginal < 45)
+            {
+                animator.SetTrigger("ShootRight");
+            }
+            else if (angleOriginal > 45 && angleOriginal < 135)
+            {
+                animator.SetTrigger("ShootUp");
+            }
+            else if (angleOriginal > 135 && angleOriginal < 180)
+            {
+                animator.SetTrigger("ShootLeft");
+            }
+            else if (angleOriginal > -180 && angleOriginal < -135)
+            {
+                animator.SetTrigger("ShootLeft");
+            }
+            else if (angleOriginal > -135 && angleOriginal < -45)
+            {
+                animator.SetTrigger("ShootDown");
+            }
+            else if (angleOriginal > -45 && angleOriginal < 0)
+            {
+                animator.SetTrigger("ShootRight");
+            }
+
+            GameObject arrow = Instantiate(arrowPrefab, attackPoint.position, attackPoint.rotation);
+            Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
+            rb.AddForce(attackPoint.up * arrowSpeed, ForceMode2D.Impulse);
+        }
+
         if (type == "CrossedShot")
         {
             if (PlayerController.instance.UseMana(10))
@@ -159,10 +210,16 @@ public class Attacking : MonoBehaviour
         }
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D[] hitRsources = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, resourcesToBeGathered);
 
-        foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage + PlayerController.instance.Strength);
+        }
+
+        foreach (Collider2D resource in hitRsources)
+        {
+            resource.GetComponent<AbleToBeGathered>().Gather();
         }
     }
 

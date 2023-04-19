@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Transform feetPos;
 
     public float maxHealth;
+    public float maxBaseHealth;
     float currentHealth;
     public Slider health;
     public float maxMana;
@@ -59,6 +60,10 @@ public class PlayerController : MonoBehaviour
     public string lastSceneEntered;
     Vector2 lastCordinates;
 
+    //Checkpoints
+    public Transform lastCheckpoint;
+    public List<GameObject> enemiesThatAttackedBeforeDeath = new List<GameObject>();
+
     void Start()
     {
         Init();
@@ -66,6 +71,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
+
         //Stats
         agilityText.text = "Agility: " + Agility;
         strengthText.text = "Strength: " + Strength;
@@ -122,6 +132,12 @@ public class PlayerController : MonoBehaviour
             else if (hit.collider != null && hit.collider.gameObject.GetComponent<Chest>() != null)
             {
                 hit.collider.gameObject.GetComponent<Chest>().OpenChest();
+            }else if(hit.collider != null && hit.collider.gameObject.GetComponent<CheckPoint>() != null)
+            {
+                SetCheckpoint(hit.collider.GetComponent<Transform>());
+            }else if(hit.collider != null && hit.collider.gameObject.GetComponent<QuestGiver>() != null)
+            {
+                hit.collider.gameObject.GetComponent<QuestGiver>().OpenQuestWindow();
             }
         }
 
@@ -160,10 +176,11 @@ public class PlayerController : MonoBehaviour
     {
         zeroZero.x = 0;
         zeroZero.y = 0;
-        currentHealth = maxHealth;
+        maxBaseHealth = maxHealth;
+        currentHealth = maxBaseHealth;
         currentMana = maxMana;
 
-        health.maxValue = maxHealth;
+        health.maxValue = maxBaseHealth;
         health.value = currentHealth;
         mana.maxValue = maxMana;
         mana.value = currentMana;
@@ -191,8 +208,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, GameObject enemy)
     {
+        
+        if(enemy != null)
+        {
+            enemiesThatAttackedBeforeDeath.Add(enemy.gameObject);
+        }
         currentHealth -= damage;
         health.value = currentHealth;
     }
@@ -229,5 +251,56 @@ public class PlayerController : MonoBehaviour
     {
         money += moneyToAdd;
         moneyAmount.text = "" + money;
+    }
+
+    public void UpdateStats()
+    {
+        maxHealth = maxBaseHealth + Stamina;
+        health.maxValue = maxHealth;
+    }
+
+    public void SetCheckpoint(Transform checkpointPosition)
+    {
+        lastCheckpoint = checkpointPosition;
+    }
+
+    void Die()
+    {
+        transform.position = lastCheckpoint.position;
+
+        foreach(GameObject enemy in enemiesThatAttackedBeforeDeath)
+        {
+            if(enemy != null)
+            {
+                enemy.GetComponent<Enemy>().ResetAgro();
+            }
+        }
+
+        currentHealth = maxHealth;
+        health.value = currentHealth;
+    }
+
+    public void UsePotion(Potion potion)
+    {
+        if(currentHealth + potion.regenHealth < maxHealth)
+        {
+            currentHealth += potion.regenHealth;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
+
+        if (currentMana + potion.regenMana < maxMana)
+        {
+            currentMana += potion.regenMana;
+        }
+        else
+        {
+            currentMana = maxMana;
+        }
+
+        health.value = currentHealth;
+        mana.value = currentMana;
     }
 }

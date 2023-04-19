@@ -16,6 +16,18 @@ public class EquipmentSlots : MonoBehaviour
     public CraftingManager CraftingManager;
     public GameObject customCursor;
 
+    public GameObject itemInfoObj;
+
+    void Start()
+    {
+        Init();
+    }
+
+    void Init()
+    {
+        itemInfoObj = ItemInfo.instance.gameObject;
+    }
+
     public void AddToInventory()
     {
         Inventory.AddItem(item);
@@ -46,5 +58,22 @@ public class EquipmentSlots : MonoBehaviour
         icon.sprite = null;
         icon.gameObject.SetActive(false);
         Inventory.currentEquipment[slotIndex] = null;
+    }
+
+    public void OnMouseOver()
+    {
+        Debug.Log("Hovering on " + gameObject.name);
+        if (item != null)
+        {
+            itemInfoObj.GetComponent<ItemInfo>().ShowInfo(item);
+        }
+
+    }
+
+    public void OnMouseExit()
+    {
+        Debug.Log("Exiting on " + gameObject.name);
+        //itemInfoObj.GetComponent<ItemInfo>().ItemInfoShowup.SetActive(false);
+        itemInfoObj.GetComponent<ItemInfo>().HideInfo();
     }
 }

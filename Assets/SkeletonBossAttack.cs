@@ -105,7 +105,7 @@ public class SkeletonBossAttack : MonoBehaviour
 
         foreach (Collider2D player in hitPlayers)
         {
-            player.GetComponent<PlayerController>().TakeDamage(20);
+            player.GetComponent<PlayerController>().TakeDamage(20, gameObject);
         }
     }
 

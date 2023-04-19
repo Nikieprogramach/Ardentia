@@ -16,9 +16,12 @@ MonoBehaviour:
   description: MaskOfTheDragon
   icon: {fileID: 21300000, guid: 5768189cc3eacc349b675a41a9381ad3, type: 3}
   isDefaultItem: 0
-  equipSlot: 0
+  price: 0
+  hasStats: 1
   agilityModifier: 3
   strengthModifier: 0
   staminaModifier: 1
   intelectModifier: 5
   spiritModifier: 5
+  IsRanged: 0
+  equipSlot: 0

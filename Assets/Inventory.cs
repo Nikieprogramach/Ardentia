@@ -107,6 +107,8 @@ public class Inventory : MonoBehaviour
         PlayerController.Intelect += newItem.intelectModifier;
         PlayerController.Spirit += newItem.spiritModifier;
 
+        PlayerController.UpdateStats();
+
         if (onEquipmentChanged != null)
         {
             onEquipmentChanged.Invoke(newItem, oldItem);

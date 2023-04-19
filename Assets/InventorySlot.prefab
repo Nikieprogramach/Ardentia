@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6074357158551166652}
   - component: {fileID: 662102979438249205}
   - component: {fileID: 7585053382522947767}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 7712367064650779649}
   - component: {fileID: 2548391780567975284}
   - component: {fileID: 6391232580364609976}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 887602388587504487}
   - component: {fileID: 5422843126882674284}
   - component: {fileID: 759760998995449522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InventorySlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,6 +326,8 @@ MonoBehaviour:
   amountOfItems: 0
   CraftingManager: {fileID: 0}
   Inventory: {fileID: 0}
+  canRemoveItems: 1
+  itemInfoObj: {fileID: 0}
 --- !u!114 &759760998995449522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +357,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5422843126882674284}
+          m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5422843126882674284}
+          m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
+          m_MethodName: OnMouseExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4072824813456014815
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +400,7 @@ GameObject:
   - component: {fileID: 4280993197762978059}
   - component: {fileID: 2500538386011126821}
   - component: {fileID: 1717419594372150541}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

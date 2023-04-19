@@ -16,9 +16,12 @@ MonoBehaviour:
   description: RingOfPower
   icon: {fileID: 21300000, guid: f07d2e76d80eed34dac330cdfb403286, type: 3}
   isDefaultItem: 0
-  equipSlot: 5
+  price: 0
+  hasStats: 1
   agilityModifier: 4
   strengthModifier: 4
   staminaModifier: 4
   intelectModifier: 4
   spiritModifier: 4
+  IsRanged: 0
+  equipSlot: 5

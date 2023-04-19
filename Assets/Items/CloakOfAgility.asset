@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2d6b66fcba47d43bc4e5c680a2f11e, type: 3}
+  m_Name: CloakOfAgility
+  m_EditorClassIdentifier: 
+  name: CloakOfAgility
+  description: Item
+  icon: {fileID: 1007182328, guid: bc7f370f6158d6c4f8be36f0b1911bb8, type: 3}
+  isDefaultItem: 0
+  price: 0
+  hasStats: 1
+  agilityModifier: 4
+  strengthModifier: 1
+  staminaModifier: 2
+  intelectModifier: 1
+  spiritModifier: 1
+  IsRanged: 0
+  equipSlot: 1
