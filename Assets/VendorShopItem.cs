@@ -26,7 +26,7 @@ public class VendorShopItem : MonoBehaviour
     {
         if (PlayerController.instance.GiveMoney(item.price))
         {
-            Inventory.instance.AddItem(item);
+            Inventory.instance.AddItem(item, 1);
         }
         else
         {

@@ -16,4 +16,12 @@ MonoBehaviour:
   description: String
   icon: {fileID: 21300000, guid: 3d7a386f1a984c44bafb48dd6e952326, type: 3}
   isDefaultItem: 0
+  isStackable: 1
   price: 4
+  hasStats: 0
+  agilityModifier: 0
+  strengthModifier: 0
+  staminaModifier: 0
+  intelectModifier: 0
+  spiritModifier: 0
+  IsRanged: 0

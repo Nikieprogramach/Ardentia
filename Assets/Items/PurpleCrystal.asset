@@ -16,4 +16,12 @@ MonoBehaviour:
   description: PurpleCrystal
   icon: {fileID: 21300000, guid: 1324610d150cb5949994ec8abcc3f666, type: 3}
   isDefaultItem: 0
+  isStackable: 1
   price: 2
+  hasStats: 0
+  agilityModifier: 0
+  strengthModifier: 0
+  staminaModifier: 0
+  intelectModifier: 0
+  spiritModifier: 0
+  IsRanged: 0

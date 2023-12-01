@@ -54,12 +54,12 @@ public class QuestGiver : MonoBehaviour
 
                 title.text = quest.title;
                 description.text = quest.description;
-                if (quest.moneyReward != null)
+                if (quest.moneyReward != 0)
                 {
                     money.SetActive(true);
                     moneyAmount.text = quest.moneyReward.ToString();
                 }
-                if (quest.xpReward != null)
+                if (quest.xpReward != 0)
                 {
                     xp.SetActive(true);
                     xpAmount.text = quest.xpReward.ToString();
@@ -77,12 +77,12 @@ public class QuestGiver : MonoBehaviour
                 rewardWindow.SetActive(true);
 
                 rewardTitle.text = quest.title + " completed!";
-                if (quest.moneyReward != null)
+                if (quest.moneyReward != 0)
                 {
                     rewardMoney.SetActive(true);
                     rewardMoneyAmount.text = quest.moneyReward.ToString();
                 }
-                if (quest.xpReward != null)
+                if (quest.xpReward != 0)
                 {
                     rewardXp.SetActive(true);
                     rewardXpAmount.text = quest.xpReward.ToString();

@@ -23,7 +23,7 @@ public class Equipment : Item
 
     public void RemoveFromInventory()
     {
-        Inventory.instance.RemoveItem(this);
+        Inventory.instance.RemoveItem(this, 1);
     }
 }
 

@@ -64,6 +64,11 @@ public class PlayerController : MonoBehaviour
     public Transform lastCheckpoint;
     public List<GameObject> enemiesThatAttackedBeforeDeath = new List<GameObject>();
 
+    //Popup info
+    public GameObject popupObj;
+    public Text popupText;
+    public float popupDuration = 5;
+
     void Start()
     {
         Init();
@@ -114,6 +119,7 @@ public class PlayerController : MonoBehaviour
             {
                 EquipmentUI.SetActive(false);
                 EquipmentIsShowed = false;
+                ItemInfo.instance.HideInfo();
             }
         }
 
@@ -129,7 +135,10 @@ public class PlayerController : MonoBehaviour
             {
                 hit.collider.gameObject.GetComponent<Vendor>().OnClickOpenShop();
             }
-            else if (hit.collider != null && hit.collider.gameObject.GetComponent<Chest>() != null)
+            else if (hit.collider != null && hit.collider.gameObject.GetComponent<CraftingVendor>() != null)
+            {
+                hit.collider.gameObject.GetComponent<CraftingVendor>().OnClickOpenShop();
+            }else if (hit.collider != null && hit.collider.gameObject.GetComponent<Chest>() != null)
             {
                 hit.collider.gameObject.GetComponent<Chest>().OpenChest();
             }else if(hit.collider != null && hit.collider.gameObject.GetComponent<CheckPoint>() != null)
@@ -138,6 +147,9 @@ public class PlayerController : MonoBehaviour
             }else if(hit.collider != null && hit.collider.gameObject.GetComponent<QuestGiver>() != null)
             {
                 hit.collider.gameObject.GetComponent<QuestGiver>().OpenQuestWindow();
+            }else if (hit.collider != null && hit.collider.gameObject.GetComponent<Enemy>() != null)
+            {
+                hit.collider.gameObject.GetComponent<Enemy>().OnClickSetTarget();
             }
         }
 
@@ -150,6 +162,14 @@ public class PlayerController : MonoBehaviour
                 mana.value = currentMana;
                 regenMana = 0;
             }
+        }
+        if (popupDuration > 0)
+        {
+            popupDuration -= Time.deltaTime;
+        }
+        else
+        {
+            popupObj.SetActive(false);
         }
     }
 
@@ -170,6 +190,7 @@ public class PlayerController : MonoBehaviour
     {
         InventoryUI.SetActive(false);
         InventoryIsShowed = false;
+        ItemInfo.instance.HideInfo();
     }
 
     void Init()
@@ -255,8 +276,18 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateStats()
     {
-        maxHealth = maxBaseHealth + Stamina;
-        health.maxValue = maxHealth;
+        if(currentHealth == maxHealth)
+        {
+            maxHealth = maxBaseHealth + Stamina * 10;
+            health.maxValue = maxHealth;
+            currentHealth = maxHealth;
+            health.value = currentHealth;
+        }
+        else
+        {
+            maxHealth = maxBaseHealth + Stamina * 10;
+            health.maxValue = maxHealth;
+        }
     }
 
     public void SetCheckpoint(Transform checkpointPosition)
@@ -270,7 +301,7 @@ public class PlayerController : MonoBehaviour
 
         foreach(GameObject enemy in enemiesThatAttackedBeforeDeath)
         {
-            if(enemy != null)
+            if(enemy)
             {
                 enemy.GetComponent<Enemy>().ResetAgro();
             }
@@ -302,5 +333,12 @@ public class PlayerController : MonoBehaviour
 
         health.value = currentHealth;
         mana.value = currentMana;
+    }
+
+    public void SetPopup(string text)
+    {
+        popupDuration = 5;
+        popupObj.SetActive(true);
+        popupText.text = text;
     }
 }

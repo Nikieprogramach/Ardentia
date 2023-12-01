@@ -18,6 +18,15 @@ public class Attacking : MonoBehaviour
     public float attackCooldown;
     float attackCooldownCounter;
 
+    //Targeted attack
+
+    public GameObject target;
+    public GameObject TargetMarker;
+
+
+    //////////
+
+
     public GameObject CrossedSpellPrefab;
     public bool CanUseCrossedSpell = true;
     public float spellSpeed;
@@ -67,11 +76,30 @@ public class Attacking : MonoBehaviour
             attackPoint.position = transform.position;
         }
 
-        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 lookDir = mousePosition - firePointRb.position;
-        angleOriginal = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        firePointRb.rotation = angle;
+        //mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        //Vector2 lookDir = mousePosition - firePointRb.position;
+        //angleOriginal = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        //float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        //firePointRb.rotation = angle;
+        
+        //Test for target selection
+        if(target)
+        {
+            mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 lookDir = target.GetComponent<Rigidbody2D>().position - firePointRb.position;
+            angleOriginal = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+            firePointRb.rotation = angle;
+        }
+        else
+        {
+            mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 lookDir = mousePosition - firePointRb.position;
+            angleOriginal = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+            firePointRb.rotation = angle;
+        }
+        //
 
         if (Input.GetButtonDown("Fire2"))
         {
@@ -79,7 +107,7 @@ public class Attacking : MonoBehaviour
             {
                 Attack();
                 attackCooldownCounter = attackCooldown - PlayerController.instance.Agility/50;
-            }else if(Inventory.instance.currentEquipment[7] != null && Inventory.instance.currentEquipment[7].IsRanged == true && shootCooldownCounter <= 0)
+            }else if(Inventory.instance.currentEquipment[7] != null && Inventory.instance.currentEquipment[7].IsRanged == true && shootCooldownCounter <= 0 && target)
             {
                 Shoot("Arrow");
                 shootCooldownCounter = shootCooldown - PlayerController.instance.Agility / 50;
@@ -221,6 +249,22 @@ public class Attacking : MonoBehaviour
         {
             resource.GetComponent<AbleToBeGathered>().Gather();
         }
+    }
+
+    public void SetTarget(GameObject targetSellected)
+    {
+        if(target == targetSellected)
+        {
+            target = null;
+            TargetMarker.SetActive(false);
+        }
+        else
+        {
+            target = targetSellected;
+            TargetMarker.SetActive(true);
+            TargetMarker.GetComponent<TargetMarker>().SetTarget(target);
+        }
+
     }
 
     void OnDrawGizmosSelected()

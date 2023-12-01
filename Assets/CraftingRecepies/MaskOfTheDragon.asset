@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fb411b53d652f4ca7f4748a15c5ad7, type: 3}
+  m_Name: MaskOfTheDragon
+  m_EditorClassIdentifier: 
+  product: {fileID: 11400000, guid: 9d82942bca41e8e489fc836bb9d78ed3, type: 2}
+  amountOfProduct: 1
+  ingredient1: {fileID: 11400000, guid: a4b09903b8104664dbf9891701c7c9cd, type: 2}
+  amountOfIngredient1: 8
+  ingredient2: {fileID: 11400000, guid: 8af3352d797100141b974f8f56f83a7e, type: 2}
+  amountOfIngredient2: 2
+  ingredient3: {fileID: 11400000, guid: 04519ed5be011d04b8b8c1f1b1bcc9d0, type: 2}
+  amountOfIngredient3: 1
+  ingredient4: {fileID: 11400000, guid: e91132fb57c4d8a48b9bde31f3f9cf70, type: 2}
+  amountOfIngredient4: 2

@@ -19,4 +19,5 @@ MonoBehaviour:
   amountToCompleteQuest: 3
   xpReward: 10
   moneyReward: 10
-  itemReward: {fileID: 11400000, guid: 164f9db000c11ba42af10f697aabbe53, type: 2}
+  itemReward: {fileID: 11400000, guid: a4b09903b8104664dbf9891701c7c9cd, type: 2}
+  amountOfItemReward: 5

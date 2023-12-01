@@ -47,6 +47,15 @@ public class Inventory : MonoBehaviour
 
     public GameObject[] equipmentSlots;
 
+    public struct ItemSlotWithAmount
+    {
+        public Item item;
+        public int amount;
+        public bool itemInSlot;
+    }
+
+    public List<ItemSlotWithAmount> itemsTestWithAmount = new List<ItemSlotWithAmount>();
+
     public List<Item> items = new List<Item>();
 
     void Start()
@@ -65,20 +74,52 @@ public class Inventory : MonoBehaviour
         currentEquipment = new Equipment[numSlots];
     }
 
-    public bool AddItem(Item item)
+    public bool AddItem(Item ItemToBeAdded, int amount)
     {
-        if (!item.isDefaultItem)
+        if (!ItemToBeAdded.isDefaultItem)
         {
-            if (items.Count >= space)
+            bool sameItemExists = false;
+            if(ItemToBeAdded.isStackable == true)
             {
-                return false;
+                for (int i = 0; i < itemsTestWithAmount.Count; i++)
+                {
+                    if (itemsTestWithAmount[i].item == ItemToBeAdded)
+                    {
+                        ItemSlotWithAmount item = new ItemSlotWithAmount();
+                        item.item = ItemToBeAdded;
+                        item.amount = itemsTestWithAmount[i].amount + amount;
+                        item.itemInSlot = true;
+
+                        itemsTestWithAmount[i] = item;
+                        sameItemExists = true;
+
+                        if (onItemChangedCallback != null)
+                        {
+                            onItemChangedCallback.Invoke();
+                        }
+
+                        break;
+                        
+                    }
+                }
             }
-
-            items.Add(item);
-
-            if (onItemChangedCallback != null)
+            if (!sameItemExists)
             {
-                onItemChangedCallback.Invoke();
+                if (itemsTestWithAmount.Count >= space)
+                {
+                    return false;
+                }
+
+                ItemSlotWithAmount item = new ItemSlotWithAmount();
+                item.item = ItemToBeAdded;
+                item.amount = amount;
+
+                itemsTestWithAmount.Add(item);
+
+                if (onItemChangedCallback != null)
+                {
+                    onItemChangedCallback.Invoke();
+                }
             }
         }
         return true;
@@ -92,7 +133,7 @@ public class Inventory : MonoBehaviour
         if (currentEquipment[slotIndex] != null)
         {
             oldItem = currentEquipment[slotIndex];
-            AddItem(oldItem);
+            AddItem(oldItem, 1);
 
             PlayerController.Agility -= oldItem.agilityModifier;
             PlayerController.Strength -= oldItem.strengthModifier;
@@ -120,12 +161,30 @@ public class Inventory : MonoBehaviour
         equipmentSlots[slotIndex].GetComponent<EquipmentSlots>().icon.gameObject.SetActive(true);
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem(Item item, int amount)
     {
-        items.Remove(item);
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (itemsTestWithAmount[i].item == item)
+            {
+                if(itemsTestWithAmount[i].amount > amount)
+                {
+                    ItemSlotWithAmount removeItem = new ItemSlotWithAmount();
+                    removeItem.item = item;
+                    removeItem.amount = itemsTestWithAmount[i].amount - amount;
+                    removeItem.itemInSlot = true;
+
+                    itemsTestWithAmount[i] = removeItem;
+                }
+                else
+                {
+                    itemsTestWithAmount.Remove(itemsTestWithAmount[i]);
+                }
+                break;
+            }
+        }
 
         Debug.Log("RemoveCalled" + item);
-
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();
@@ -134,11 +193,13 @@ public class Inventory : MonoBehaviour
 
     void UpdateUI()
     {
+
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < items.Count)
+            if (i < itemsTestWithAmount.Count)
             {
-                slots[i].AddItem(items[i]);
+                slots[i].amountOfItems = itemsTestWithAmount[i].amount;
+                slots[i].AddItem(itemsTestWithAmount[i].item);
             }
             else
             {
@@ -150,5 +211,33 @@ public class Inventory : MonoBehaviour
     void OnLevelWasLoaded()
     {
         Init();
+    }
+
+    public bool CheckIfItemAmountExists(Item item, int amount)
+    {
+        Debug.Log(itemsTestWithAmount.Count);
+        if(itemsTestWithAmount.Count == 0)
+        {
+            return false;
+        }
+        for (int i = 0; i < itemsTestWithAmount.Count; i++)
+        {
+            if (itemsTestWithAmount[i].itemInSlot) { 
+                if (!itemsTestWithAmount[i].item)
+                {
+                    return false;
+                }
+                if (itemsTestWithAmount[i].item == item && itemsTestWithAmount[i].amount >= amount)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        return false;   
     }
 }

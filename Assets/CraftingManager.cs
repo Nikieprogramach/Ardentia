@@ -46,6 +46,14 @@ public class CraftingManager : MonoBehaviour
                 {
                     //if(nearestSlot.GetComponent<CraftingSlot>().item == null)
                     //{
+
+                    Item tempItem = null;
+
+                    if (nearestSlot.GetComponent<CraftingSlot>().item != null)
+                    {
+                        tempItem = nearestSlot.GetComponent<CraftingSlot>().item;
+                    }
+
                         nearestSlot.GetComponent<CraftingSlot>().icon.gameObject.SetActive(true);
                         nearestSlot.GetComponent<CraftingSlot>().icon.sprite = currentItem.icon;
                         nearestSlot.GetComponent<CraftingSlot>().item = currentItem;
@@ -54,8 +62,24 @@ public class CraftingManager : MonoBehaviour
 
                         oldItem = currentItem;
 
+                    if(tempItem != null)
+                    {
+                        currentItem = tempItem;
+                        if (pickedUpSlot.GetComponent<InventorySlot>() != null && pickedUpSlot.GetComponent<InventorySlot>().canRemoveItems == false)
+                        {
+                            pickedUpSlot.GetComponent<InventorySlot>().canRemoveItems = true;
+                        }
+                        pickedUpSlot = nearestSlot;
+
+                        customCursor.gameObject.SetActive(true);
+                        customCursor.gameObject.GetComponent<CustomCursor>().item = tempItem;
+                        customCursor.gameObject.GetComponent<Image>().sprite = tempItem.icon;
+                    }
+                    else
+                    {
                         currentItem = null;
                         customCursor.GetComponent<CustomCursor>().item = null;
+                    }
                     //}
                     //else
                     //{
@@ -82,15 +106,18 @@ public class CraftingManager : MonoBehaviour
                 }
                 else
                 {
-                    Inventory.instance.AddItem(currentItem);
+                    Inventory.instance.AddItem(currentItem, 1);
                     currentItem = null;
                     customCursor.GetComponent<CustomCursor>().item = null;
                 }
             }
 
-            if(pickedUpSlot != null && pickedUpSlot.GetComponent<InventorySlot>().canRemoveItems == false)
+            if(pickedUpSlot != null)
             {
-                pickedUpSlot.GetComponent<InventorySlot>().canRemoveItems = true;
+                if(pickedUpSlot.GetComponent<InventorySlot>() != null && pickedUpSlot.GetComponent<InventorySlot>().canRemoveItems == false)
+                {
+                    pickedUpSlot.GetComponent<InventorySlot>().canRemoveItems = true;
+                }
             }
         }
     }

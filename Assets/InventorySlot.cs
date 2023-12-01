@@ -5,6 +5,7 @@ public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public Button removeButton;
+    public Text amountText;
 
     public GameObject customCursor;
 
@@ -35,6 +36,16 @@ public class InventorySlot : MonoBehaviour
 
         icon.sprite = itemToAdd.icon;
         icon.enabled = true;
+        if(amountOfItems > 1)
+        {
+            amountText.gameObject.SetActive(true);
+            amountText.text = "" + amountOfItems;
+        }
+        else
+        {
+            amountText.gameObject.SetActive(false);
+        }
+
         removeButton.interactable = true;
     }
 
@@ -44,11 +55,12 @@ public class InventorySlot : MonoBehaviour
         icon.sprite = null;
         icon.enabled = false;
         removeButton.interactable = false;
+        amountText.gameObject.SetActive(false);
     }
 
     public void OnRemoveButton()
     {
-        Inventory.instance.RemoveItem(item);
+        Inventory.instance.RemoveItem(item, 1);
     }
 
     public void UseItem()
@@ -76,14 +88,14 @@ public class InventorySlot : MonoBehaviour
             Debug.Log(item);
             customCursor.GetComponent<Image>().sprite = item.icon;
 
-            Inventory.RemoveItem(item);
+            Inventory.RemoveItem(item, 1);
             canRemoveItems = false;
         }
     }
 
     public void OnMouseOver()
     {
-        Debug.Log("Hovering on " + gameObject.name);
+        //Debug.Log("Hovering on " + gameObject.name);
         if(item != null)
         {
             itemInfoObj.GetComponent<ItemInfo>().ShowInfo(item);
@@ -93,7 +105,7 @@ public class InventorySlot : MonoBehaviour
 
     public void OnMouseExit()
     {
-        Debug.Log("Exiting on " + gameObject.name);
+        //Debug.Log("Exiting on " + gameObject.name);
         //itemInfoObj.GetComponent<ItemInfo>().ItemInfoShowup.SetActive(false);
         itemInfoObj.GetComponent<ItemInfo>().HideInfo();
     }

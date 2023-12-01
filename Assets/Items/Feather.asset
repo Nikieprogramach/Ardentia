@@ -16,4 +16,12 @@ MonoBehaviour:
   description: Feather
   icon: {fileID: 21300000, guid: ad136ff2ea901bf44b970a6b7968257d, type: 3}
   isDefaultItem: 0
+  isStackable: 1
   price: 5
+  hasStats: 0
+  agilityModifier: 0
+  strengthModifier: 0
+  staminaModifier: 0
+  intelectModifier: 0
+  spiritModifier: 0
+  IsRanged: 0

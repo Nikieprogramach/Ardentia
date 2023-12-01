@@ -7,6 +7,7 @@ public class Item : ScriptableObject
     public string description = "Item";
     public Sprite icon = null;
     public bool isDefaultItem = false;
+    public bool isStackable = false;
     public int price;
 
     public bool hasStats = false;

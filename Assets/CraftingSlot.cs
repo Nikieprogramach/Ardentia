@@ -75,7 +75,7 @@ public class CraftingSlot : MonoBehaviour
     {
         if(item != null)
         {
-            Inventory.instance.AddItem(item);
+            Inventory.instance.AddItem(item, 1);
         }
     }
 

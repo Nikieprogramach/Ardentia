@@ -65,4 +65,10 @@ public class Enemy : MonoBehaviour
         DropLootController.instance.DropItem(transform);
         Destroy(gameObject);
     }
+
+    public void OnClickSetTarget()
+    {
+        Debug.Log("Enemy clicked");
+        Attacking.instance.SetTarget(gameObject);
+    }
 }

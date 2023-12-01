@@ -17,6 +17,6 @@ public class Potion : Item
 
     public void RemoveFromInventory()
     {
-        Inventory.instance.RemoveItem(this);
+        Inventory.instance.RemoveItem(this, 1);
     }
 }

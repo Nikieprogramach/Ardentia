@@ -51,7 +51,7 @@ public class QuestTracker : MonoBehaviour
         }
         if(activeQuest.itemReward != null)
         {
-            Inventory.instance.AddItem(activeQuest.itemReward);
+            Inventory.instance.AddItem(activeQuest.itemReward, activeQuest.amountOfItemReward);
         }
         questIsCompleted = false;
         activeQuestsText.SetActive(false);

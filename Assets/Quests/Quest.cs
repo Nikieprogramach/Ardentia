@@ -15,6 +15,7 @@ public class Quest : ScriptableObject
     public int xpReward;
     public int moneyReward;
     public Item itemReward;
+    public int amountOfItemReward = 1;
 }
 
 public enum QuestType { Kill, Gathering }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d603f76cf6e774bb3756f3261388f1, type: 3}
+  m_Name: BluePowerCrystal
+  m_EditorClassIdentifier: 
+  name: BluePowerCrystal
+  description: Item
+  icon: {fileID: 21300000, guid: 3d20df666adbd044195eb59e4c087b91, type: 3}
+  isDefaultItem: 0
+  isStackable: 1
+  price: 10
+  hasStats: 0
+  agilityModifier: 0
+  strengthModifier: 0
+  staminaModifier: 0
+  intelectModifier: 0
+  spiritModifier: 0
+  IsRanged: 0

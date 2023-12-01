@@ -16,4 +16,12 @@ MonoBehaviour:
   description: GoldBar
   icon: {fileID: 21300000, guid: 2cd3c4083a01c394abe39a78ac3c362d, type: 3}
   isDefaultItem: 0
+  isStackable: 1
   price: 100
+  hasStats: 0
+  agilityModifier: 0
+  strengthModifier: 0
+  staminaModifier: 0
+  intelectModifier: 0
+  spiritModifier: 0
+  IsRanged: 0

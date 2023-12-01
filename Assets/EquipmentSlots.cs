@@ -30,7 +30,7 @@ public class EquipmentSlots : MonoBehaviour
 
     public void AddToInventory()
     {
-        Inventory.AddItem(item);
+        Inventory.AddItem(item, 1);
         PlayerController.Agility -= item.agilityModifier;
         PlayerController.Strength -= item.strengthModifier;
         PlayerController.Stamina -= item.staminaModifier;
